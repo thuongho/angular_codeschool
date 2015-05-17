@@ -3,68 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <title>GemStore</title>
-  <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="styles/bootstrap/css/bootstrap.min.css" />
     
     
 </head>
 <body>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-2">
-        <h1>Gem Store</h1>
-      </div>
-      <div class="store col-lg-8" ng-controller="StoreController as store">
-        <h3>Products</h3>
-        <div class="product thumbnail" ng-repeat="product in products">
-          <h3>{{product.name}}</h3>
-          <ul>
-            <li>Price: {{product.price | currency}}</li>
-            <li ng-show="product.soldOut">Sold Out</li>
-            <li ng-show="product.canPurchase"><a href="#"><button class="btn btn-info" >Buy</button></a></li>
-            <li ng-show="product.cuts.length">
-              <p ng-repeat="cut in product.cuts">Cut size: {{cut}}</p>
-            </li>
-          </ul>
-          <section ng-controller="PanelController as panel">
-            <ul class="nav nav-pills">
-              <li ng-class="{active: isSet(1)}">
-                <a href ng-click="setTab(1)">Description</a>
-              </li>
-              <li ng-class="{active: isSet(2)}">
-                <a href ng-click="setTab(2)">Model</a>
-              </li>
-              <li ng-class="{active: isSet(3)}">
-                <a href ng-click="setTab(3)">Specs</a>
-              </li>
-            </ul>
-            <div class="tab" ng-show="isSet(1)">
-              <h4>Description</h4>
-              <blockquote>Description of the gem.</blockquote>
-            </div>
-            <div class="tab" ng-show="isSet(2)">
-              <h4>Model</h4>
-              <blockquote>Attributes go here</blockquote>
-              <ul>
-                <li>clean</li>
-                <li>cut</li>
-                <li>clarity</li>
-              </ul>
-            </div>
-            <div class="tab" ng-show="isSet(3)">
-              <h4>Specs</h4>
-              <blockquote>Speculations of the gem</blockquote>
-              <ul>
-                <li>Size</li>
-                <li>Weight</li>
-                <li>Shape</li>
-              </ul>
-            </div>
-          </section>
-        </div>
-      </div>
-    </div>
+  <h1>{{"Hello Angular!"}}</h1>
+
+  <div ng-controller="StoreController as store">
+    <h3>
+      {{store.product.name}}
+      <em class="pull-right">${{store.product.price}}</em>  
+    </h3>
+    
+    <p>{{store.product.description}}</p>
   </div>
-  <script type="text/javascript" src="angular.min.js"></script>
-  <script type="text/javascript" src="app.js"></script>
+
+
+
+  <!-- <script type="text/javascript" src="angular/angular.min.js"></script> -->
+  <script type="text/javascript" src="angular/angular.js"></script>
+  <script type="text/javascript" src="scripts/app.js"></script>
 </body>
 </html>
