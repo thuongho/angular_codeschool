@@ -4,23 +4,87 @@
   <meta charset="UTF-8">
   <title>GemStore</title>
   <link rel="stylesheet" type="text/css" href="styles/bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="styles/css/main.css">
     
     
 </head>
 <body class="container">
-  <h1>{{"Hello Angular!"}}</h1>
+  <h1>{{"Power Stones!"}}</h1>
 
   <div ng-controller="StoreController as store">
-    <ul class="list-group" >
-      <li class="list-group-item" ng-repeat="product in store.products">
+  <!-- products container -->
+    <div class="list-group" >
+      <!-- product container -->
+      <div class="list-group-item" ng-repeat="product in store.products">
         <h3>
-        {{product.name}}
-        <em class="pull-right">{{product.price | currency}}</em>  
+          {{product.name}}
+          <em class="pull-right">{{product.price | currency}}</em>  
         </h3>
-        <p>{{product.description}}</p>
+        <!-- image gallery -->
+        <div class="gallery" >
+          <img ng-src="{{product.images[0]}}" class="img img-circle img-responsive img-thumbnail center-block" alt="" ng-show="product.images.length" />
+          <ul class="clearfix">
+            <li class="small-image pull-left thumbnail" ng-repeat="image in product.images">
+              <img src="{{image}}" alt="{{image}}" />
+            </li>
+          </ul>
+        </div>
+        
+        <section class="tab" ng-controller="PanelController as panel">
+          <ul class="nav nav-pills">
+
+            <li ng-class="{ active: panel.isSelected(1) }">
+              <!-- change ng-click from tab = 1 to panel.selectTab(1) -->
+              <a href="" ng-click="panel.setTab(1)">Description</a>
+            </li>
+            <li ng-class="{ active: panel.isSelected(2) }">
+              <a href="" ng-click="panel.setTab(2)">Specification</a>
+            </li>
+            <li ng-class="{ active: panel.isSelected(3) }">
+              <a href="" ng-click="panel.setTab(3)">Reviews</a>
+            </li>
+          </ul>
+          <!-- change ng-show from tab === 1 to panel.isSelected(1) -->
+          <div class="panel" ng-show="panel.isSelected(1)">
+            <h4>Description</h4>
+            <p>{{product.description}}</p>
+          </div>
+          <div class="panel" ng-show="panel.isSelected(2)">
+            <h4>Specification</h4>
+            <blockquote>{{product.specification}}</blockquote>
+          </div>
+          <div class="panel" ng-show="panel.isSelected(3)">
+            <h4>Specification</h4>
+            <blockquote>{{product.review}}</blockquote>
+          </div>
+        </section>
+
+        <!-- <section class="tab" ng-controller="TabController as tab">
+        <ul class="nav nav-pills">
+          <li ng-class="{active: tab.isSet(1)}">
+            <a href ng-click="tab.setTab(1)">Description</a></li>
+          <li ng-class="{active: tab.isSet(2)}">
+            <a href ng-click="tab.setTab(2)">Specs</a></li>
+          <li ng-class="{active: tab.isSet(3)}">
+            <a href ng-click="tab.setTab(3)">Reviews</a></li>
+        </ul>
+        <div ng-show="tab.isSet(1)">
+          <h4>Description</h4>
+          <blockquote>{{product.description}}</blockquote>
+        </div>
+        <div ng-show="tab.isSet(2)">
+          <h4>Specs</h4>
+          <blockquote>Shine: {{product.shine}}</blockquote>
+        </div>
+        <div ng-show="tab.isSet(3)">
+          <h4>Reviews</h4>
+          <blockquote></blockquote>
+        </div>
+      </section> -->
+        
         <button class="btn btn-default" ng-show="product.canPurchase">Buy</button>
-      </li>
-    </ul>
+      </div>
+    </div>
   </div>
 
 
