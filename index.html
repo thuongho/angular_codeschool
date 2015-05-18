@@ -21,15 +21,7 @@
           <em class="pull-right">{{product.price | currency}}</em>  
         </h3>
         <!-- image gallery -->
-        <div class="gallery" ng-show="product.images.length" ng-controller="GalleryController as gallery">
-          <!-- instead of 0, change it to be dynamic -->
-          <img ng-src="{{product.images[gallery.current]}}" class="img img-circle img-responsive img-thumbnail center-block" alt="" />
-          <ul class="clearfix list-inline thumbs">
-            <li class="small-image thumbnail" ng-repeat="image in product.images">
-              <img src="{{image}}" alt="{{image}}" />
-            </li>
-          </ul>
-        </div>
+        <product-gallery></product-gallery>
         
         <!-- products panel -->
         <product-tabs></product-tabs>
