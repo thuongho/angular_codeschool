@@ -7,6 +7,24 @@
     this.products = gems;
   });
 
+  app.controller('GalleryController', function(){
+    this.current = 0;
+
+    this.setCurrent = function(newVal) {
+      if (newVal){
+        this.current = newVal;
+      }
+    };
+
+    // this.setCurrent = function(newVal) {
+    //   if (newVal !== null){
+    //     this.current = newVal;
+    //   } else {
+    //     this.current = 0;
+    //   }
+    // };
+  });
+
   app.controller('PanelController', function(){
     // ng-init="tab = 1"
     this.tab = 1;
@@ -20,7 +38,6 @@
     this.isSelected = function(tabValue){
       return this.tab === tabValue;
     };
-
   });
 
   app.controller('TabController', function(){
