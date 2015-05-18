@@ -1,0 +1,15 @@
+.small-image {
+  width: 20%;
+  height: 20%;
+}
+
+/* make border red for invalid form validation */
+/* angular adds class ng-dirty if modified */
+/* angular adds class ng-invalid if not valid */
+.ng-dirty.ng-invalid {
+  border-color: red;
+}
+
+.ng-dirty.ng-valid {
+  border-color: green;
+}
