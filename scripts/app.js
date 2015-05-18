@@ -1,6 +1,6 @@
 (function() {
 
-  var app = angular.module('gemStore', []);
+  var app = angular.module('gemStore', ['store-directives']);
 
   app.controller('StoreController', function(){
     // this.product = gem;
@@ -25,22 +25,8 @@
     // };
   // });
 
-  app.directive('productGallery', function(){
-    return {
-      restrict: 'E',
-      templateUrl: 'views/product-gallery.html',
-      controller: function(){
-        this.current = 0;
-
-        this.setCurrent = function(newVal) {
-          if (newVal){
-            this.current = newVal;
-          }
-        };
-      },
-      controllerAs: 'gallery'
-    };
-  })
+  // app.directive'productGallery'
+  // moved to products.js
 
   app.controller('TabController', function(){
     this.tab = 1;
@@ -65,20 +51,13 @@
     };
   });
 
-  app.directive('productDescription', function(){
-    return {
-      restrict: 'E',
-      templateUrl: 'views/product-description.html'
-    };
-  });
+  // app.directive('productDescription'
+    // moved to product.js
 
   // attribute directive
-  app.directive('productSpecs', function(){
-    return {
-      restrict: 'A',
-      templateUrl: 'views/product-specs.html'
-    };
-  });
+  
+  // app.directive('productSpecs'
+    // moved to product.js
 
   // this controller is now combined with the productTabs directive
   // app.controller('PanelController', function(){
@@ -97,24 +76,9 @@
   // });
 
   // element directive with panel controller
-  app.directive('productTabs', function(){
-    return {
-      restrict: 'E',
-      templateUrl: 'views/product-tabs.html',
-      // add PanelController to this directive
-      controller: function(){
-        this.tab = 1;
-        this.setTab = function(newValue){
-          this.tab = newValue;
-        };
-        this.isSelected = function(tabValue){
-          return this.tab === tabValue;
-        };
-      },
-      // give alias
-      controllerAs: 'panel'
-    };
-  });
+  
+  // app.directive('productTabs'
+    // moved to product.js
 
 
   var gem = {
