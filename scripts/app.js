@@ -7,6 +7,17 @@
     this.products = gems;
   });
 
+  // alternative with $http call to api
+  app.controller('AnotherStoreController', ['$http', function($http){
+    var store = this;
+    // create an empty array to hold the json data
+    store.products = [];
+    $http.get('/store-product.json').success(function(data){
+      // upon success, store the data into this.products
+      store.products = data;
+    });  
+  }]);
+
   // app.controller('GalleryController', function(){
   //   this.current = 0;
 
