@@ -45,15 +45,19 @@
               <a href="" ng-click="panel.setTab(3)">Reviews</a>
             </li>
           </ul>
+
+          <!-- description panel with ng-include -->
           <!-- change ng-show from tab === 1 to panel.isSelected(1) -->
-          <div class="panel" ng-show="panel.isSelected(1)">
-            <h4>Description</h4>
-            <p>{{product.description}}</p>
+          <div class="panel" ng-show="panel.isSelected(1)" ng-include="'views/product-description.html'">
           </div>
+
+          <!-- specification panel -->
           <div class="panel" ng-show="panel.isSelected(2)">
             <h4>Specification</h4>
             <blockquote>{{product.specification}}</blockquote>
           </div>
+
+          <!-- reviews panel -->
           <div class="panel" ng-show="panel.isSelected(3)">
             <h4>Reviews</h4>
             <ul>
