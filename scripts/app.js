@@ -70,7 +70,18 @@
       isSoldOut: false,
       images: [
         "images/emerald.png"
-      ]
+      ],
+      reviews: [{
+        stars: 5,
+        body: "I love this gem!",
+        author: "joe@example.org",
+        createdOn: 1397490980837
+      }, {
+        stars: 1,
+        body: "This gem sucks.",
+        author: "tim@example.org",
+        createdOn: 1397490980837
+      }]
     },
     {
       name: 'Ruby',
@@ -80,7 +91,18 @@
       isSoldOut: false,
       images: [
         "images/ruby.png"
-      ]
+      ],
+      reviews: [{
+        stars: 3,
+        body: "I think this gem was just OK, could honestly use more shine, IMO.",
+        author: "JimmyDean@example.org",
+        createdOn: 1397490980837
+      }, {
+        stars: 4,
+        body: "Any gem with 12 faces is for me!",
+        author: "gemsRock@example.org",
+        createdOn: 1397490980837
+      }]
     },
     { 
       name: 'Azurite', 
@@ -90,7 +112,13 @@
       isSoldOut: false,
       images: [
         "images/azurite.png"
-      ] 
+      ],
+      reviews: [{
+        stars: 1,
+        body: "Out of this world!",
+        author: "gemcollector1923@jeve.com",
+        createdOn: 1397490980837
+      }] 
     },
     { 
       name: 'Bloodstone', 
@@ -100,7 +128,13 @@
       isSoldOut: false,
       images: [
         "images/bloodstone.png"
-      ] 
+      ],
+      reviews: [{
+        stars: 1,
+        body: "Never seen anything this miraculous.",
+        author: "geewiz@spotty.org",
+        createdOn: 1397490980837
+      }] 
     },
     { 
       name: 'Zircon', 
@@ -110,7 +144,23 @@
       isSoldOut: false,
       images: [
         "images/zircon.png"
-      ] 
+      ],
+      reviews: [{
+        stars: 1,
+        body: "This gem is WAY too expensive for its rarity value.",
+        author: "turtleguyy@example.org",
+        createdOn: 1397490980837
+      }, {
+        stars: 1,
+        body: "BBW: High Shine != High Quality.",
+        author: "LouisW407@example.org",
+        createdOn: 1397490980837
+      }, {
+        stars: 1,
+        body: "Don't waste your rubles!",
+        author: "nat@example.org",
+        createdOn: 1397490980837
+      }] 
     }
   ];
 

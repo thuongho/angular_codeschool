@@ -55,39 +55,50 @@
             <blockquote>{{product.specification}}</blockquote>
           </div>
           <div class="panel" ng-show="panel.isSelected(3)">
-            <h4>Specification</h4>
-            <blockquote>{{product.review}}</blockquote>
+            <h4>Reviews</h4>
+            <ul>
+              <li ng-repeat="review in product.reviews">
+                <blockquote>
+                  <strong>{{review.stars}} Stars</strong>
+                  {{review.body}}
+                  <cite class="clearfix">- {{review.author}}</cite>
+                </blockquote>    
+              </li>
+            </ul>
+
+            <!-- review form -->
+            <form name="reviewForm">
+              <!-- live preview -->
+              <blockquote>
+                <strong>{{review.stars}} Stars</strong>
+                {{review.body}}
+                <cite class="clearfix">- {{review.author}}</cite>
+              </blockquote>
+
+              <!-- review form -->
+              <h4>Review Form</h4>
+              <fieldset class="form-group">
+                <select class="form-control" name="stars" title="stars" ng-option="stars for stars in [1,2,3,4,5]" ng-model="review.stars">
+                  <option value="">Rate the Product</option>
+                </select>
+              </fieldset>
+              <fieldset class="form-group">
+                <textarea placeholder="Write your review here..." title="Review" cols="30" rows="10" class="form-control" ng-model="review.body"></textarea>
+              </fieldset>
+              <fieldset class="form-group">
+                <input type="email" class="form-control" placeholder="justiceleague@teamone.com" ng-model="review.author">
+              </fieldset>
+              <fieldset class="form-group">
+                <input type="submit" class="btn btn-primary pull-right" value="Submit Review">
+              </fieldset>
+            </form>
           </div>
         </section>
-
-        <!-- <section class="tab" ng-controller="TabController as tab">
-        <ul class="nav nav-pills">
-          <li ng-class="{active: tab.isSet(1)}">
-            <a href ng-click="tab.setTab(1)">Description</a></li>
-          <li ng-class="{active: tab.isSet(2)}">
-            <a href ng-click="tab.setTab(2)">Specs</a></li>
-          <li ng-class="{active: tab.isSet(3)}">
-            <a href ng-click="tab.setTab(3)">Reviews</a></li>
-        </ul>
-        <div ng-show="tab.isSet(1)">
-          <h4>Description</h4>
-          <blockquote>{{product.description}}</blockquote>
-        </div>
-        <div ng-show="tab.isSet(2)">
-          <h4>Specs</h4>
-          <blockquote>Shine: {{product.shine}}</blockquote>
-        </div>
-        <div ng-show="tab.isSet(3)">
-          <h4>Reviews</h4>
-          <blockquote></blockquote>
-        </div>
-      </section> -->
         
         <button class="btn btn-default" ng-show="product.canPurchase">Buy</button>
       </div>
     </div>
   </div>
-
 
 
   <!-- <script type="text/javascript" src="angular/angular.min.js"></script> -->
