@@ -61,7 +61,21 @@
       product.reviews.push(this.review);
       this.review = {};
     };
+  });
 
+  app.directive('productDescription', function(){
+    return {
+      restrict: 'E',
+      templateUrl: 'views/product-description.html'
+    };
+  });
+
+  // attribute directive
+  app.directive('productSpecs', function(){
+    return {
+      restrict: 'A',
+      templateUrl: 'views/product-specs.html'
+    };
   });
 
 
@@ -77,6 +91,10 @@
     {
       name: 'Emerald',
       price: 4.80,
+      shine: 8,
+      rarity: 7,
+      color: '#CCC',
+      faces: 14,
       description: 'greeen as a lime',
       canPurchase: true,
       isSoldOut: false,
@@ -98,6 +116,10 @@
     {
       name: 'Ruby',
       price: 3.60,
+      shine: 5,
+      rarity: 7,
+      color: '#CCE',
+      faces: 6,
       description: 'Red as blood',
       canPurchase: true,
       isSoldOut: false,
@@ -119,6 +141,10 @@
     { 
       name: 'Azurite', 
       price: 2.95,
+      shine: 3,
+      rarity: 9,
+      color: '#CFC',
+      faces: 10,
       description: 'Blue Rock',
       canPurchase: true,
       isSoldOut: false,
@@ -135,6 +161,10 @@
     { 
       name: 'Bloodstone', 
       price: 5.95,
+      shine: 2,
+      rarity: 10,
+      color: '#FFF',
+      faces: 13,
       description: 'Formed from the blood of a sorcerer',
       canPurchase: true,
       isSoldOut: false,
@@ -151,6 +181,10 @@
     { 
       name: 'Zircon', 
       price: 3.95,
+      shine: 9,
+      rarity: 8,
+      color: '#FCC',
+      faces: 4,
       description: 'Diamond troll',
       canPurchase: true,
       isSoldOut: false,

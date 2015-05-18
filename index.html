@@ -48,13 +48,14 @@
 
           <!-- description panel with ng-include -->
           <!-- change ng-show from tab === 1 to panel.isSelected(1) -->
-          <div class="panel" ng-show="panel.isSelected(1)" ng-include="'views/product-description.html'">
-          </div>
+         <!--  <div class="panel" ng-show="panel.isSelected(1)" ng-include="'views/product-description.html'">
+          </div> -->
 
-          <!-- specification panel -->
-          <div class="panel" ng-show="panel.isSelected(2)">
-            <h4>Specification</h4>
-            <blockquote>{{product.specification}}</blockquote>
+          <!-- description panel with custom directive -->
+          <product-description ng-show="panel.isSelected(1)"></product-description>
+
+          <!-- specification panel with attribute directive -->
+          <div class="panel" ng-show="panel.isSelected(2)" product-specs>
           </div>
 
           <!-- reviews panel -->
