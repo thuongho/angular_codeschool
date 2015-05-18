@@ -56,6 +56,8 @@
     this.review = {};
 
     this.placeReview = function(product){
+      // add timestamp for review creation
+      this.review.createdOn = Date.now();
       product.reviews.push(this.review);
       this.review = {};
     };

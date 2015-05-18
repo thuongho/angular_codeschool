@@ -61,13 +61,15 @@
                 <blockquote>
                   <strong>{{review.stars}} Stars</strong>
                   {{review.body}}
-                  <cite class="clearfix">- {{review.author}}</cite>
+                  <cite class="clearfix">- {{review.author}} on {{review.createdOn | date}}</cite>
                 </blockquote>    
               </li>
             </ul>
 
             <!-- review form -->
-            <form name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewCtrl.placeReview(product)">
+            <!-- turn off html form validation with novalidate -->
+            <!-- prevent form from submit $valid -->
+            <form name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewForm.$valid && reviewCtrl.placeReview(product)" novalidate>
               <!-- live preview -->
               <blockquote>
                 <strong>{{reviewCtrl.review.stars}} Stars</strong>
@@ -78,7 +80,7 @@
               <!-- review form -->
               <h4>Review Form</h4>
               <fieldset class="form-group">
-                <select class="form-control" name="stars" title="stars" ng-options="stars for stars in [1,2,3,4,5]" ng-model="reviewCtrl.review.stars">
+                <select class="form-control" name="stars" title="stars" ng-options="stars for stars in [1,2,3,4,5]" ng-model="reviewCtrl.review.stars" required>
                   <option value="">Rate the Product</option>
                 </select>
               </fieldset>
@@ -86,7 +88,7 @@
                 <textarea placeholder="Write your review here..." title="Review" cols="30" rows="10" class="form-control" ng-model="reviewCtrl.review.body"></textarea>
               </fieldset>
               <fieldset class="form-group">
-                <input type="email" class="form-control" placeholder="justiceleague@teamone.com" ng-model="reviewCtrl.review.author">
+                <input type="email" class="form-control" placeholder="justiceleague@teamone.com" ng-model="reviewCtrl.review.author" required>
               </fieldset>
               <fieldset class="form-group">
                 <input type="submit" class="btn btn-primary pull-right" value="Submit Review">
