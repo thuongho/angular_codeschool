@@ -67,26 +67,26 @@
             </ul>
 
             <!-- review form -->
-            <form name="reviewForm">
+            <form name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewCtrl.placeReview(product)">
               <!-- live preview -->
               <blockquote>
-                <strong>{{review.stars}} Stars</strong>
-                {{review.body}}
-                <cite class="clearfix">- {{review.author}}</cite>
+                <strong>{{reviewCtrl.review.stars}} Stars</strong>
+                {{reviewCtrl.review.body}}
+                <cite class="clearfix">- {{reviewCtrl.review.author}}</cite>
               </blockquote>
 
               <!-- review form -->
               <h4>Review Form</h4>
               <fieldset class="form-group">
-                <select class="form-control" name="stars" title="stars" ng-option="stars for stars in [1,2,3,4,5]" ng-model="review.stars">
+                <select class="form-control" name="stars" title="stars" ng-options="stars for stars in [1,2,3,4,5]" ng-model="reviewCtrl.review.stars">
                   <option value="">Rate the Product</option>
                 </select>
               </fieldset>
               <fieldset class="form-group">
-                <textarea placeholder="Write your review here..." title="Review" cols="30" rows="10" class="form-control" ng-model="review.body"></textarea>
+                <textarea placeholder="Write your review here..." title="Review" cols="30" rows="10" class="form-control" ng-model="reviewCtrl.review.body"></textarea>
               </fieldset>
               <fieldset class="form-group">
-                <input type="email" class="form-control" placeholder="justiceleague@teamone.com" ng-model="review.author">
+                <input type="email" class="form-control" placeholder="justiceleague@teamone.com" ng-model="reviewCtrl.review.author">
               </fieldset>
               <fieldset class="form-group">
                 <input type="submit" class="btn btn-primary pull-right" value="Submit Review">

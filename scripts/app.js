@@ -52,6 +52,16 @@
     };
   });
 
+  app.controller('ReviewController', function(){
+    this.review = {};
+
+    this.placeReview = function(product){
+      product.reviews.push(this.review);
+      this.review = {};
+    };
+
+  });
+
 
   var gem = {
     name: 'Emerald',
