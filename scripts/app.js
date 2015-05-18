@@ -25,21 +25,6 @@
     // };
   });
 
-  app.controller('PanelController', function(){
-    // ng-init="tab = 1"
-    this.tab = 1;
-    // create a function to set the tab
-    // assign to ng-click panel.selectTab(number)
-    this.setTab = function(newValue){
-      this.tab = newValue;
-    };
-
-    // create a function to compare the select tab
-    this.isSelected = function(tabValue){
-      return this.tab === tabValue;
-    };
-  });
-
   app.controller('TabController', function(){
     this.tab = 1;
 
@@ -75,6 +60,42 @@
     return {
       restrict: 'A',
       templateUrl: 'views/product-specs.html'
+    };
+  });
+
+  // this controller is now combined with the productTabs directive
+  // app.controller('PanelController', function(){
+  //   // ng-init="tab = 1"
+  //   this.tab = 1;
+  //   // create a function to set the tab
+  //   // assign to ng-click panel.selectTab(number)
+  //   this.setTab = function(newValue){
+  //     this.tab = newValue;
+  //   };
+
+  //   // create a function to compare the select tab
+  //   this.isSelected = function(tabValue){
+  //     return this.tab === tabValue;
+  //   };
+  // });
+
+  // element directive with panel controller
+  app.directive('productTabs', function(){
+    return {
+      restrict: 'E',
+      templateUrl: 'views/product-tabs.html',
+      // add PanelController to this directive
+      controller: function(){
+        this.tab = 1;
+        this.setTab = function(newValue){
+          this.tab = newValue;
+        };
+        this.isSelected = function(tabValue){
+          return this.tab === tabValue;
+        };
+      },
+      // give alias
+      controllerAs: 'panel'
     };
   });
 

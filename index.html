@@ -31,76 +31,8 @@
           </ul>
         </div>
         
-        <section class="tab" ng-controller="PanelController as panel">
-          <ul class="nav nav-pills">
-
-            <li ng-class="{ active: panel.isSelected(1) }">
-              <!-- change ng-click from tab = 1 to panel.selectTab(1) -->
-              <a href="" ng-click="panel.setTab(1)">Description</a>
-            </li>
-            <li ng-class="{ active: panel.isSelected(2) }">
-              <a href="" ng-click="panel.setTab(2)">Specification</a>
-            </li>
-            <li ng-class="{ active: panel.isSelected(3) }">
-              <a href="" ng-click="panel.setTab(3)">Reviews</a>
-            </li>
-          </ul>
-
-          <!-- description panel with ng-include -->
-          <!-- change ng-show from tab === 1 to panel.isSelected(1) -->
-         <!--  <div class="panel" ng-show="panel.isSelected(1)" ng-include="'views/product-description.html'">
-          </div> -->
-
-          <!-- description panel with custom directive -->
-          <product-description ng-show="panel.isSelected(1)"></product-description>
-
-          <!-- specification panel with attribute directive -->
-          <div class="panel" ng-show="panel.isSelected(2)" product-specs>
-          </div>
-
-          <!-- reviews panel -->
-          <div class="panel" ng-show="panel.isSelected(3)">
-            <h4>Reviews</h4>
-            <ul>
-              <li ng-repeat="review in product.reviews">
-                <blockquote>
-                  <strong>{{review.stars}} Stars</strong>
-                  {{review.body}}
-                  <cite class="clearfix">- {{review.author}} on {{review.createdOn | date}}</cite>
-                </blockquote>    
-              </li>
-            </ul>
-
-            <!-- review form -->
-            <!-- turn off html form validation with novalidate -->
-            <!-- prevent form from submit $valid -->
-            <form name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewForm.$valid && reviewCtrl.placeReview(product)" novalidate>
-              <!-- live preview -->
-              <blockquote>
-                <strong>{{reviewCtrl.review.stars}} Stars</strong>
-                {{reviewCtrl.review.body}}
-                <cite class="clearfix">- {{reviewCtrl.review.author}}</cite>
-              </blockquote>
-
-              <!-- review form -->
-              <h4>Review Form</h4>
-              <fieldset class="form-group">
-                <select class="form-control" name="stars" title="stars" ng-options="stars for stars in [1,2,3,4,5]" ng-model="reviewCtrl.review.stars" required>
-                  <option value="">Rate the Product</option>
-                </select>
-              </fieldset>
-              <fieldset class="form-group">
-                <textarea placeholder="Write your review here..." title="Review" cols="30" rows="10" class="form-control" ng-model="reviewCtrl.review.body"></textarea>
-              </fieldset>
-              <fieldset class="form-group">
-                <input type="email" class="form-control" placeholder="justiceleague@teamone.com" ng-model="reviewCtrl.review.author" required>
-              </fieldset>
-              <fieldset class="form-group">
-                <input type="submit" class="btn btn-primary pull-right" value="Submit Review">
-              </fieldset>
-            </form>
-          </div>
-        </section>
+        <!-- products panel -->
+        <product-tabs></product-tabs>
         
         <button class="btn btn-default" ng-show="product.canPurchase">Buy</button>
       </div>
